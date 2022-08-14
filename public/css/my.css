@@ -1,0 +1,64 @@
+body {
+    background-color: #023047;
+    color: #fb8500;
+}
+h1 {
+    color: #8ecae6;
+    text-align: center;
+    text-decoration: underline;
+    padding: 8px;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(1,1,1,0.8);
+    transition: 0.3s;
+    border-radius: 5px;
+    text-align: center;
+    margin: 5px;
+    padding: 10px 0px;
+}
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(1,1,1,0.8);
+}
+
+.column {
+    width: 22%;
+}
+
+.card a{
+    color: white;
+    border-radius: 8px;
+    border: 1px solid white;
+    padding: 4px 10px;
+    text-decoration: none;
+}
+form {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border: 1px solid white;
+    margin-bottom: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 8px;
+}
+form * {
+    margin: 0px 5px;
+}
+form label {
+    font-size: 18px;
+}
+form input[type=text] {
+    flex-grow: 1;
+}
+img {
+    border-radius: 5px 5px 0 0;
+    width: 40%;
+    max-width: 75px;
+}
+
+#tasklist {
+    display:flex;
+    justify-content: space-around;
+    width: 100%;
+}
+

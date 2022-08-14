@@ -1,0 +1,78 @@
+<h1>Your Tasklist</h1>
+<form action="/new" method="POST" enctype="multipart/form-data">
+    <label>New Item: </label>
+    <input type="text" name="title" value="" placeholder="Title">
+    <input type="date" name="duedate" value="">
+    <input type="submit">
+</form>
+<div id="tasklist">
+    <div class="column">
+    <% for_each(tasksnew) do task %>
+        <div class="card">
+            <img src="/img/$(task.status).png" alt="Avatar">
+            <div class="container">
+                <h2><b>$(task.title)</b></h2>
+                <p>$(task.duedate)</p>
+                <div style="display: flex; justify-content: space-around">
+                    <a href="/task/$(task.id)/status/active">Active</a>
+                    <a href="/task/$(task.id)/status/deferred">Defer</a>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    </div>
+    <div class="column">
+    <% for_each(tasksactive) do task %>
+        <div class="card">
+            <img src="/img/$(task.status).png" alt="Avatar">
+            <div class="container">
+                <h2><b>$(task.title)</b></h2>
+                <p>$(task.duedate)</p>
+                <div style="display: flex; justify-content: space-around">
+                    <a href="/task/$(task.id)/status/deferred">Defer</a>
+                    <a href="/task/$(task.id)/status/closed">Close</a>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    </div>
+    <div class="column">
+    <% for_each(tasksdeferred) do task %>
+        <div class="card">
+            <img src="/img/$(task.status).png" alt="Avatar">
+            <div class="container">
+                <h2><b>$(task.title)</b></h2>
+                <p>$(task.duedate)</p>
+                <div style="display: flex; justify-content: space-around">
+                    <a href="/task/$(task.id)/status/active">Active</a>
+                    <a href="/task/$(task.id)/status/closed">Close</a>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    </div>
+    <div class="column">
+    <% for_each(tasksclosed) do task %>
+        <div class="card">
+            <img src="/img/$(task.status).png" alt="Avatar">
+            <div class="container">
+                <h2><b>$(task.title)</b></h2>
+                <p>$(task.duedate)</p>
+                <div style="display: flex; justify-content: space-around">
+                    <a href="/task/$(task.id)/status/new">New</a>
+                    <a href="/task/$(task.id)/status/archived">Archive</a>
+                </div>
+            </div>
+        </div>
+    <% end %>
+    </div>
+</div>
+
+<details>
+    <summary>Archived</summary>
+    <ul>
+    <% for_each(tasksarchived) do task %>
+        <li>$(task.title) - $(task.duedate)</li>
+    <% end %>
+    </ul>
+</details>
